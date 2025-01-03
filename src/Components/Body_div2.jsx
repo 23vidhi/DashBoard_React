@@ -1,9 +1,24 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
-import {FiChevronDown} from "react-icons/fi";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { FiChevronDown } from "react-icons/fi";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const BodyDiv2 = () => {
   // Bar chart data
@@ -37,7 +52,9 @@ const BodyDiv2 = () => {
     <div className="bg-white shadow-md rounded-lg p-6 flex w-[100%]  mt-5 h-[65.8%] ">
       {/* Chart Section */}
       <div className="flex-1 w-60 pr-3 justify-center items-center">
-        <h2 className="text-lg font-semibold text-gray-700 mb-4">Total Revenue</h2>
+        <h2 className="text-lg font-semibold text-gray-700 mb-4">
+          Total Revenue
+        </h2>
         <Bar data={data} options={options} />
       </div>
 
@@ -45,7 +62,9 @@ const BodyDiv2 = () => {
       <div className="w-1/3 pl-6 border-l border-gray-200">
         <div className="flex justify-between items-center mb-4 p-4">
           <h3 className="text-gray-700 text-lg font-medium">2023</h3>
-          <button className="text-sm bg-purple-100 text-purple-600 px-2 py-1 rounded"><FiChevronDown/></button>
+          <button className="text-sm bg-purple-100 text-purple-600 px-2 py-1 rounded">
+            <FiChevronDown />
+          </button>
         </div>
         <div className="text-center mb-6">
           <div className="text-3xl font-bold text-purple-600">78%</div>
