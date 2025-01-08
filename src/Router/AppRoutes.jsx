@@ -3,6 +3,8 @@ import RouteLayout from "../Components/RouteLayout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Body from "../Components/Body";
 import "../index.css";
+import OrderList from "../Components/Orders/OrderList/OrderList";
+import OrderDetails from "../Components/Orders/OrderDetails/OrderDetails";
 
 const router = createBrowserRouter([
   {
@@ -10,12 +12,16 @@ const router = createBrowserRouter([
     element: <RouteLayout />,
     children: [
       {
-        path: "",
-        element: <Body />, 
+        path: "Body",
+        element: <Body />,
       },
       {
-        path: "/page1",
-        element: <Body />, // Add the Body component as a rout
+        path: "/OrderList",
+        element: <OrderList />,
+      },
+      {
+        path: "/OrderDetails?",
+        element: <OrderDetails />,
       },
     ],
   },

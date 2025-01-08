@@ -1,32 +1,36 @@
 import React, { useState } from "react";
+import Logo from "../assets/pictures/sneat logo.png";
+
+import { useNavigate } from "react-router-dom";
 import {
-  FiHome,
-  FiGrid,
-  FiMail,
-  FiCalendar,
-  FiShoppingCart,
-  FiUser,
-  FiLock,
-  FiBarChart,
-  FiMessageCircle,
-  FiActivity,
-  FiLoader,
-  FiInbox,
-  FiAperture,
-  FiWind,
-  FiMonitor,
-  
-  FiPackage,
-  FiPlay,
-  FiBookmark,
-  FiChevronDown,
-  FiRadio,
-} from "react-icons/fi";
-import { FaChevronRight } from "react-icons/fa";
+  Home,
+  Mail,
+  Calendar,
+  ShoppingCart,
+  User,
+  Lock,
+  BarChart,
+  MessageCircle,
+  Activity,
+  Loader,
+  Inbox,
+  Aperture,
+  Wind,
+  Monitor,
+  Package,
+  Play,
+  Bookmark,
+  ChevronDown,
+  Radio,
+  ChevronRight,
+  ChevronLeft,
+  LayoutGrid,
+} from "lucide-react";
+
 const SidebarItems = [
   {
     label: "Dashboards",
-    icon: <FiHome />,
+    icon: Home,
     link: "#",
     dropdown: [
       { label: "Overview", link: "/overview" },
@@ -36,45 +40,53 @@ const SidebarItems = [
   },
   {
     label: "Layouts",
-    icon: <FiHome />,
+    icon: LayoutGrid,
     link: "/Layouts",
     dropdown: [
       { label: "Collapsed Sidebar", link: "/collapsed" },
-      { label: "Content navbar ", link: "/Content navbar" },
-      { label: " Content nav + Sidebar", link: "/Content nav" },
-      { label: " Horizontal", link: "/Horizontal" },
-      { label: " Without Sidebar", link: "/Without Sidebar" },
-      { label: "Without navbar ", link: "/Without navbar" },
-      { label: "Fluid ", link: "/Fluid" },
-      { label: "Container ", link: "/Container" },
-      { label: "Blank ", link: "/Blank" },
+      { label: "Content navbar", link: "/Content-navbar" },
+      { label: "Content nav + Sidebar", link: "/Content-nav" },
+      { label: "Horizontal", link: "/Horizontal" },
+      { label: "Without Sidebar", link: "/Without-Sidebar" },
+      { label: "Without navbar", link: "/Without-navbar" },
+      { label: "Fluid", link: "/Fluid" },
+      { label: "Container", link: "/Container" },
+      { label: "Blank", link: "/Blank" },
     ],
   },
   {
     label: "Front Pages",
-    icon: <FiMail />,
-    link: "/ Front Pages",
+    icon: Mail,
+    link: "/Front-Pages",
     dropdown: [
       { label: "Landing", link: "/Landing" },
       { label: "Pricing", link: "/Pricing" },
       { label: "Payment", link: "/Payment" },
-      { label: "Chekout", link: "/Chekout" },
-      { label: "Help Center", link: "/Help Center" },
+      { label: "Checkout", link: "/Checkout" },
+      { label: "Help Center", link: "/Help-Center" },
     ],
   },
 ];
+
 const SidebarItems2 = [
-  { label: "Email", icon: <FiMail />, link: "#" },
-  { label: "Chat", icon: <FiMessageCircle />, link: "#" },
-  { label: "Calendar", icon: <FiCalendar />, link: "#" },
-  { label: "Kanban", icon: <FiBookmark />, link: "#" },
+  { label: "Email", icon: Mail, link: "#" },
+  { label: "Chat", icon: MessageCircle, link: "#" },
+  { label: "Calendar", icon: Calendar, link: "#" },
+  { label: "Kanban", icon: Bookmark, link: "#" },
   {
     label: "eCommerce",
-    icon: <FiLock />,
+    icon: ShoppingCart,
     link: "#",
     dropdown: [
       { label: "Products", link: "/" },
-      { label: "Order", link: "/",dropdown: [{ label: "Order List", link: "/Order List" },{ label: "Order Details", link: "/Order Details" },] },
+      {
+        label: "Order",
+        link: "/OrderList",
+        dropdown: [
+          { label: "Order List", link: "/OrderList" },
+          { label: "Order Details", link: "/OrderDetails?" },
+        ],
+      },
       { label: "Customer", link: "/" },
       { label: "Referrals", link: "/" },
       { label: "Settings", link: "/" },
@@ -82,186 +94,236 @@ const SidebarItems2 = [
   },
   {
     label: "Academy",
-    icon: <FiActivity />,
+    icon: Activity,
     link: "#",
     dropdown: [
-      { label: "", link: "/" },
-      { label: "", link: "/" },
-      { label: "", link: "/" },
+      { label: "Course", link: "/course" },
+      { label: "Lessons", link: "/lessons" },
+      { label: "Resources", link: "/resources" },
     ],
   },
   {
     label: "Logistics",
-    icon: <FiLoader />,
+    icon: Loader,
     link: "#",
     dropdown: [
-      { label: "", link: "/" },
-      { label: "", link: "/" },
-      { label: "", link: "/" },
+      { label: "Dashboard", link: "/logistics" },
+      { label: "Fleet", link: "/fleet" },
+      { label: "Tracking", link: "/tracking" },
     ],
   },
   {
     label: "Invoice",
-    icon: <FiInbox />,
+    icon: Inbox,
     link: "#",
     dropdown: [
-      { label: "", link: "/" },
-      { label: "", link: "/" },
-      { label: "", link: "/" },
+      { label: "List", link: "/invoices" },
+      { label: "Preview", link: "/preview" },
+      { label: "Edit", link: "/edit" },
     ],
   },
   {
     label: "Users",
-    icon: <FiUser />,
+    icon: User,
     link: "#",
     dropdown: [
-      { label: "", link: "/" },
-      { label: "", link: "/" },
-      { label: "", link: "/" },
+      { label: "List", link: "/users" },
+      { label: "View", link: "/view" },
+      { label: "Edit", link: "/edit" },
     ],
   },
   {
     label: "Roles & Permissions",
-    icon: <FiRadio />,
+    icon: Lock,
     link: "#",
     dropdown: [
-      { label: "", link: "/" },
-      { label: "", link: "/" },
-      { label: "", link: "/" },
+      { label: "Roles", link: "/roles" },
+      { label: "Permissions", link: "/permissions" },
+      { label: "Users", link: "/users" },
     ],
   },
   {
     label: "Pages",
-    icon: <FiPackage />,
+    icon: Package,
     link: "#",
     dropdown: [
-      { label: "", link: "/" },
-      { label: "", link: "/" },
-      { label: "", link: "/" },
+      { label: "User Profile", link: "/profile" },
+      { label: "Account Settings", link: "/settings" },
+      { label: "FAQ", link: "/faq" },
     ],
   },
   {
-    label: "Authentications",
-    icon: <FiAperture />,
+    label: "Authentication",
+    icon: Aperture,
     link: "#",
     dropdown: [
-      { label: "", link: "/" },
-      { label: "", link: "/" },
-      { label: "", link: "/" },
+      { label: "Login", link: "/login" },
+      { label: "Register", link: "/register" },
+      { label: "Reset Password", link: "/reset" },
     ],
   },
   {
     label: "Wizard Examples",
-    icon: <FiWind />,
+    icon: Wind,
     link: "#",
     dropdown: [
-      { label: "", link: "/" },
-      { label: "", link: "/" },
-      { label: "", link: "/" },
+      { label: "Checkout", link: "/wizard-checkout" },
+      { label: "Property List", link: "/wizard-property" },
+      { label: "Create Deal", link: "/wizard-deal" },
     ],
   },
-  { label: "Modal Examples", icon: <FiMonitor />, link: "#" },
+  { label: "Modal Examples", icon: Monitor, link: "#" },
 ];
+
 const Sidebar = () => {
-  
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [activeDropdowns, setActiveDropdowns] = useState(new Set());
+  const navigate = useNavigate();
 
-  const [dropdownOpen, setDropdownOpen] = useState(null);
+  const toggleDropdown = (itemPath) => {
+    setActiveDropdowns((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(itemPath)) {
+        newSet.delete(itemPath);
+      } else {
+        newSet.add(itemPath);
+      }
+      return newSet;
+    });
+  };
 
-  const toggleDropdown = (index) => {
-    setDropdownOpen(dropdownOpen === index ? null : index);
-  };
-  const handleMouseEnter = () => {
-    setIsSidebarOpen(true);
-  };
+  const renderNavItem = (item, path = "") => {
+    const itemPath = `${path}/${item.label}`;
+    const isDropdownOpen = activeDropdowns.has(itemPath);
+    const Icon = item.icon;
 
-  const handleMouseLeave = () => {
-    setIsSidebarOpen(false);
-  };
-  return (
-    <nav className={`bg-white p-4 shadow-md h-screen overflow-y-auto scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-transparent fixed transition-all duration-300 ${isSidebarOpen ? 'w-[270px]' : 'w-[70px]'}`}
-    onMouseEnter={handleMouseEnter}
-    onMouseLeave={handleMouseLeave}>
-      
- 
-      <ul className="flex flex-col ">
-        <div className="flex justify-start mt-1 mb-2 size-8 w-full">
-          <img
-            className=" bg-transparent "
-            src="src\assets\pictures\sneat logo.PNG"
-          />
-          <div className="flex flex-row justify-between items-center gap-35 w-[100%]">
-          <span class="app-brand-text demo menu-text font-semibold ms-2 text-lg ">
-            sneat
-          </span>
-         <button onClick={()=>I}> <span className="flex items-end text-end">< FaChevronRight className="bg-violet-600 text-white rounded-lg text-base p-[0.20rem] "/></span></button>
+    return (
+      <li key={itemPath} className="mb-1">
+        <a
+          href={item.link}
+          className={`
+            flex items-center w-full px-4 py-2 rounded-lg cursor-pointer
+            ${isDropdownOpen ? "bg-violet-50 text-violet-600" : "text-gray-600"}
+            hover:bg-violet-50 hover:text-violet-600 transition-colors
+          `}
+          onClick={(e) => {
+            if (item.dropdown) {
+              e.preventDefault();
+              toggleDropdown(itemPath);
+            }
+          }}
+        >
+          <div className="flex items-center gap-3 flex-1">
+            {Icon && <Icon className="w-5 h-5" strokeWidth={1.5} />}
+            {isExpanded && (
+              <span className="text-sm font-medium truncate">{item.label}</span>
+            )}
           </div>
-        </div>
- 
-        {SidebarItems.map((item, index) => (
-          <li key={index} className="mb-4 text-sm">
-            <button
-              className={`flex items-center justify-between w-[100%]  space-x-2 text-black hover:text-violet-600 hover:bg-violet-100${!isSidebarOpen ? 'rotate-90' : ''}`}
-              onClick={() => toggleDropdown(index)}
-            >
-              <div className="flex items-center space-x-1">
-                {item.icon}
-                <div>{item.label}</div>
-              </div>
+          {item.dropdown && isExpanded && (
+            <ChevronDown
+              className={`w-4 h-4 transition-transform ${
+                isDropdownOpen ? "rotate-180" : ""
+              }`}
+              strokeWidth={1.5}
+            />
+          )}
+        </a>
 
-              {item.dropdown && <FiChevronDown className="" />}
-            </button>
-
-            {item.dropdown && dropdownOpen === index && (
-              <ul className=" list-disc left-1 ml-5 mt-2 w-48 rounded-md bg-white  ">
-                {item.dropdown.map((subItem, subIndex) => (
-                  <li key={subIndex} className="">
-                    <a
-                      href={subItem.link}
-                      className="block px-4 py-2 text-black hover:bg-gray-100"
-                    >
-                      {subItem.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+        {item.dropdown && isDropdownOpen && isExpanded && (
+          <ul className="mt-1 ml-4 space-y-1">
+            {item.dropdown.map((subItem, idx) =>
+              renderNavItem(subItem, itemPath)
             )}
-          </li>
-        ))}
-        <div>
-          <h1 className="text-gray-500 mb-4">Apps & Pages</h1>
+          </ul>
+        )}
+      </li>
+    );
+  };
+
+  return (
+    <nav
+      className={`
+        fixed top-0 left-0 h-screen bg-white border-r transition-all duration-300
+        ${isExpanded ? "w-64" : "w-16"}
+      `}
+      onMouseEnter={() => setIsExpanded(true)}
+      onMouseLeave={() => setIsExpanded(false)}
+    >
+      {/* Logo */}
+
+      <div
+        className="flex items-center h-16 px-3 "
+        onClick={() => navigate(`/Body`)}
+      >
+        <div className="flex items-center gap-2">
+          <div className="flex items-center justify-center w-8 h-8 ">
+            <span className="text-lg font-bold text-white">
+              <img src={Logo} />
+            </span>
+          </div>
+          <span
+            className={`
+            font-semibold text-xl transition-opacity duration-300
+            ${isExpanded ? "opacity-100" : "opacity-0"}
+          `}
+          >
+            Sneat
+          </span>
         </div>
-        {SidebarItems2.map((item, index) => (
-          <li key={index} className="mb-4 text-sm ">
-            <button
-              className="flex items-center justify-between w-[100%]  space-x-2 text-black hover:text-violet-600 hover:bg-violet-100"
-              onClick={() => toggleDropdown(index)}
-            >
-              <div className="flex items-center space-x-1">
-                {item.icon}
-                <div>{item.label}</div>
-              </div>
+      </div>
 
-              {item.dropdown && <FiChevronDown className="" />}
-            </button>
+      {/* Navigation Items */}
+      <div className="h-[calc(100vh-4rem)] overflow-y-auto custom-scrollbar">
+        <div className="">
+          <ul className="space-y-1">
+            {SidebarItems.map((item) => renderNavItem(item))}
+          </ul>
 
-            {item.dropdown && dropdownOpen === index && (
-              <ul className=" list-disc left-1 ml-5 mt-2 w-48 rounded-md bg-white  ">
-                {item.dropdown.map((subItem, subIndex) => (
-                  <li key={subIndex} className="">
-                    <a
-                      href={subItem.link}
-                      className="block px-4 py-2 text-black hover:bg-gray-100"
-                    >
-                      {subItem.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
-      </ul>
+          {isExpanded && (
+            <h2 className="text-xs font-semibold text-gray-400 uppercase mt-6 mb-2 px-4">
+              APPS & PAGES
+            </h2>
+          )}
+
+          <ul className="space-y-1">
+            {SidebarItems2.map((item) => renderNavItem(item))}
+          </ul>
+
+          {isExpanded && (
+            <>
+              <h2 className="text-xs font-semibold text-gray-400 uppercase mt-6 mb-2 px-4">
+                COMPONENTS
+              </h2>
+              <h2 className="text-xs font-semibold text-gray-400 uppercase mt-6 mb-2 px-4">
+                FORMS & TABLES
+              </h2>
+              <h2 className="text-xs font-semibold text-gray-400 uppercase mt-6 mb-2 px-4">
+                CHARTS & MAPS
+              </h2>
+              <h2 className="text-xs font-semibold text-gray-400 uppercase mt-6 mb-2 px-4">
+                MISC
+              </h2>
+            </>
+          )}
+        </div>
+      </div>
+
+      <style jsx>{`
+        .custom-scrollbar {
+          scrollbar-width: thin;
+          scrollbar-color: #e5e7eb transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background-color: #e5e7eb;
+          border-radius: 20px;
+        }
+      `}</style>
     </nav>
   );
 };

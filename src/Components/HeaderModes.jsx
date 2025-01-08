@@ -1,12 +1,25 @@
-import React, { useState } from 'react';
-import { FiSun } from 'react-icons/fi';
+import { FiSun } from "react-icons/fi";
+import "../index.css";
+import React, { useState, useEffect } from "react";
 
 const HeaderModes = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   const handleDropdownToggle = () => {
     setDropdownOpen(!dropdownOpen);
   };
+  const HandleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
 
   return (
     <div className="relative inline-block text-left">
@@ -19,35 +32,41 @@ const HeaderModes = () => {
           aria-expanded="true"
           onClick={handleDropdownToggle}
         >
-           <FiSun
-                  className="text-gray-500 hover:text-blue-500 cursor-pointer"
-                  size={20}
-                />
+          <FiSun
+            className="text-gray-500 hover:text-blue-500 cursor-pointer"
+            size={20}
+          />
         </button>
-       
       </div>
 
       {dropdownOpen && (
         <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-          <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+          <div
+            className="py-1"
+            role="menu"
+            aria-orientation="vertical"
+            aria-labelledby="options-menu"
+          >
             <button
               className="block px-4 py-2 text-sm hover:bg-violet-200 hover:text-violet-600 w-full text-left"
               role="menuitem"
-              onClick={() => console.log('Light mode selected')}
+              onClick={() => console.log("Light mode selected")}
             >
               Light
             </button>
             <button
               className="block px-4 py-2 text-sm hover:bg-violet-200 hover:text-violet-600 w-full text-left"
               role="menuitem"
-              onClick={() => console.log('Dark mode selected')}
+              onClick={() => {
+                HandleDarkMode;
+              }}
             >
               Dark
             </button>
             <button
               className="block px-4 py-2 text-sm hover:bg-violet-200 hover:text-violet-600 w-full text-left"
               role="menuitem"
-              onClick={() => console.log('System mode selected')}
+              onClick={() => console.log("System mode selected")}
             >
               System
             </button>
@@ -59,4 +78,3 @@ const HeaderModes = () => {
 };
 
 export default HeaderModes;
-

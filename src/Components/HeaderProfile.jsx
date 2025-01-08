@@ -16,7 +16,7 @@ const HeaderProfile = () => {
         className="flex items-center gap-2 p-2  rounded-full  transition"
       >
        <img
-            src="https://via.placeholder.com/40"
+            src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/1.png"
             alt="Profile"
             className="w-10 h-10 rounded-full border border-gray-300"
           />
@@ -30,7 +30,7 @@ const HeaderProfile = () => {
           <div className="p-4 border-b">
             <div className="flex items-center gap-3">
               <img
-                src="https://via.placeholder.com/40"
+                src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/1.png"
                 alt="User"
                 className="w-12 h-12 rounded-full"
               />

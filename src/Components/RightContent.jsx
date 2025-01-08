@@ -9,7 +9,7 @@ const RightContent = () => {
     <div className="  flex justify-center mt-1  ">
       <div className=" flex flex-col justify-center items-center ml-14">
         <Header />
-        <div className="">
+        <div className="w-[73vw] ml-2">
           <Outlet />
         </div>
       </div>

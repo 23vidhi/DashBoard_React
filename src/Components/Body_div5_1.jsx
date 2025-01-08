@@ -9,7 +9,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const Body_div5_1 = () => {
   return (
-    <div className=" flex flex-col max-w-lg  bg-white shadow-md rounded-lg p-6 space-y-6 w-[100%] justify-items-start">
+    <div className=" flex flex-col max-w-lg  bg-white shadow rounded-lg p-6 space-y-6 w-[100%] justify-items-start">
       <h2 className="text-lg font-semibold text-gray-800">Activity Timeline</h2>
 
       {/* Invoice Paid Section */}
