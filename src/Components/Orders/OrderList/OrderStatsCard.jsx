@@ -31,7 +31,7 @@ const OrderStatsCard = () => {
   ];
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-6 flex justify-between items-center w-[100%]]">
+    <div className="bg-white dark:bg-background   shadow-md rounded-lg p-6 flex justify-between items-center w-[100%]]">
       {stats.map((stat, index) => (
         <div
           key={index}
@@ -43,7 +43,9 @@ const OrderStatsCard = () => {
             {stat.icon}
           </div>
           <div>
-            <h1 className="text-2xl font-semibold text-gray-800">{stat.value}</h1>
+            <h1 className="text-2xl font-semibold text-gray-800">
+              {stat.value}
+            </h1>
             <p className="text-gray-500 text-sm">{stat.label}</p>
           </div>
         </div>

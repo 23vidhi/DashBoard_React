@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import { AreaChart, Area, ResponsiveContainer } from 'recharts';
-import { MoreVertical } from 'lucide-react';
+import { AreaChart, Area, ResponsiveContainer } from "recharts";
+import { MoreVertical } from "lucide-react";
 
 const generateDummyData = () => {
   return Array.from({ length: 12 }, (_, i) => ({
     name: `Month ${i + 1}`,
-    value: Math.floor(Math.random() * 3000) + 1500
+    value: Math.floor(Math.random() * 3000) + 1500,
   }));
 };
 
@@ -14,9 +14,9 @@ const Body_div3_Payments = () => {
   const data = generateDummyData();
   const currentValue = 2456;
   const percentageChange = -14.82;
-  
+
   return (
-    <div className="w-64 h-48 p-4 bg-white rounded-lg shadow mb-4 ml-6">
+    <div className="w-64 h-48 p-4 bg-white dark:bg-background   rounded-lg shadow-md mb-4 ml-6">
       <div className="flex justify-between items-start mb-2">
         <div className="flex items-center">
           <div className="w-8 h-8 bg-red-50 rounded-lg flex items-center justify-center mr-2">
@@ -40,12 +40,18 @@ const Body_div3_Payments = () => {
           <MoreVertical size={20} />
         </button>
       </div>
-      
+
       <div className="mb-4">
-        <div className="text-2xl font-bold">${currentValue.toLocaleString()}</div>
+        <div className="text-2xl font-bold">
+          ${currentValue.toLocaleString()}
+        </div>
         <div className="flex items-center mt-1">
-          <span className={`text-sm ${percentageChange >= 0 ? 'text-green-500' : 'text-red-500'}`}>
-            {percentageChange >= 0 ? '↑' : '↓'} {Math.abs(percentageChange)}%
+          <span
+            className={`text-sm ${
+              percentageChange >= 0 ? "text-green-500" : "text-red-500"
+            }`}
+          >
+            {percentageChange >= 0 ? "↑" : "↓"} {Math.abs(percentageChange)}%
           </span>
         </div>
       </div>

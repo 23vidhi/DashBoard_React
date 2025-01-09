@@ -61,7 +61,7 @@ const Body_div4_2 = () => {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-6 w-[400px]">
+    <div className="bg-white dark:bg-background   shadow-md rounded-lg p-6 w-[400px]">
       <div className="flex justify-between items-center mb-4">
         <div className="flex space-x-4">
           <button className="px-4 py-1 text-white bg-blue-500 rounded-md font-semibold">
@@ -85,7 +85,9 @@ const Body_div4_2 = () => {
           />
         </div>
         <div>
-          <div className="text-gray-700 text-sm">Total Balance</div>
+          <div className="text-gray-700 dark:bg-background   text-sm">
+            Total Balance
+          </div>
           <div className="text-xl font-bold text-gray-800">$459.10</div>
           <div className="text-sm text-green-500 font-medium">42.9% ↑</div>
         </div>
@@ -126,7 +128,7 @@ const Body_div4_2 = () => {
           </div>
         </div>
         <div>
-          <div className="text-sm font-semibold text-gray-700">
+          <div className="text-sm font-semibold text-gray-700 dark:bg-background  ">
             Income this week
           </div>
           <div className="text-sm text-gray-500">$39k less than last week</div>

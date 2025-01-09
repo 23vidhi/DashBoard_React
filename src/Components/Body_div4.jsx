@@ -6,7 +6,7 @@ import Body_div4_3 from './Body_div4_3'
 
 const Body_div4=()=>{
     return (
-        <div className="flex gap-5 mt-6 shadow bg-transparent">
+        <div className="flex gap-5 mt-6  bg-transparent">
             <div className="flex w-[59%] gap-5 ">
             <Body_div4_1/>
             <Body_div4_2/>

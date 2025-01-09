@@ -10,7 +10,6 @@ const HeaderNoti = () => {
 
   return (
     <div className="relative">
-    
       <button
         onClick={toggleDropdown}
         className="p-2  rounded-full  transition"
@@ -23,7 +22,7 @@ const HeaderNoti = () => {
 
       {/* Dropdown */}
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg z-50">
+        <div className="absolute right-0 mt-2 w-80 bg-white dark:bg-background   rounded-lg shadow-lg z-50">
           <div className="p-4 border-b">
             <h2 className="font-bold text-lg">Notification</h2>
             <span className="text-sm text-gray-500">8 New</span>
@@ -32,7 +31,7 @@ const HeaderNoti = () => {
             {/* Notification Items */}
             <div className="p-4 flex items-center gap-3 hover:bg-violet-200 hover:text-violet-600 ">
               <img
-                src="https://via.placeholder.com/40"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRigufjUthUJERFWvM_RM5nY36wK0Vj4HgWbHUz1ePSOid3KO-uIXqqow3HwzwJXkHD6-A&usqp=CAU"
                 alt="User"
                 className="w-10 h-10 rounded-full"
               />
@@ -47,9 +46,11 @@ const HeaderNoti = () => {
               </div>
             </div>
             <div className="p-4 flex items-center gap-3 hover:bg-violet-200 hover:text-violet-600 ">
-              <div className="w-10 h-10 bg-gray-300 flex items-center justify-center rounded-full">
-                CF
-              </div>
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEQMZ6lHQJiccJpbGJCQ0HnDrq4Gr71rDapivUgrl_U3_1FOoN03xQ1D5TPLug7KLxznI&usqp=CAU"
+                alt="User"
+                className="w-10 h-10 rounded-full"
+              />
               <div>
                 <p className="font-medium text-gray-800">Charles Franklin</p>
                 <span className="text-sm text-gray-500">
@@ -60,7 +61,7 @@ const HeaderNoti = () => {
             </div>
             <div className="p-4 flex items-center gap-3 hover:bg-violet-200 hover:text-violet-600 ">
               <img
-                src="https://via.placeholder.com/40"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1fr03vldb1kF2d5WUoiugE2ETwS0ro1geFenupiW4nCrj5GgncaJPaMXIX756dygma-4&usqp=CAU"
                 alt="User"
                 className="w-10 h-10 rounded-full"
               />

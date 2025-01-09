@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { RxDotsVertical } from "react-icons/rx";
 
+
 const sampleProducts = [
   { name: "iPhone 14 Pro", category: "Electronics" },
   { name: "Nike Air Max", category: "Footwear" },
@@ -16,7 +17,7 @@ const sampleProducts = [
 ];
 
 const StatCard = ({ value, title }) => (
-  <div className="min-h-[100px] bg-white rounded-xl shadow-sm p-4 flex flex-col justify-center items-center m-2">
+  <div className="min-h-[100px] bg-white dark:bg-background   rounded-xl shadow-sm p-4 flex flex-col justify-center items-center m-2">
     <h3 className="text-2xl font-semibold text-gray-800 mb-1">{value}</h3>
     <p className="text-sm text-gray-600">{title}</p>
   </div>
@@ -31,7 +32,7 @@ const OrderList = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [id, setId] = useState(null);
 
-  const itemsPerPage = 5;
+  const itemsPerPage = 10;
   const navigate = useNavigate();
 
   // const status = [
@@ -116,7 +117,6 @@ const OrderList = () => {
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
-  
 
   if (loading) {
     return (
@@ -131,19 +131,19 @@ const OrderList = () => {
   }
 
   return (
-    <div className="w-[100%] px-7 py-20 space-y-5 ">
-      <div className="flex flex-wrap justify-between bg-white shadow rounded-md">
+    <div className="w-[100%] px-7 py-20 pb-0 space-y-5 ">
+      <div className="flex flex-wrap justify-between bg-white dark:bg-background   shadow rounded-md">
         <StatCard value="56" title="Pending Payment" />
         <StatCard value="12,689" title="Completed" />
         <StatCard value="124" title="Refunded" />
         <StatCard value="32" title="Failed" />
       </div>
 
-      <div className="mb-8 bg-white shadow-md rounded-md">
+      <div className="mb-8 bg-white dark:bg-background   shadow-md rounded-md">
         <input
           type="text"
           placeholder="Search orders..."
-          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-background  "
           value={searchQuery}
           onChange={(e) => {
             setSearchQuery(e.target.value);
@@ -151,15 +151,15 @@ const OrderList = () => {
           }}
         />
 
-        <div className="bg-white rounded-xl shadow-sm overflow-hidden mt-1  ">
+        <div className="bg-white dark:bg-background   rounded-xl shadow-sm overflow-hidden mt-1  ">
           <div className="overflow-x-auto">
             <table className="w-full h-96">
-              <thead className="bg-gray-50 border-b border-gray-200 relative">
+              <thead className="bg-gray-50 dark:bg-gray-900   border-b border-gray-200 relative">
                 <tr>
-                  <th className="w-16 p-4">
+                  <th className="w-16 p-4 ">
                     <input
                       type="checkbox"
-                      className="rounded border-gray-300"
+                      className="rounded border-gray-300 mr-4"
                     />
                   </th>
                   <th className="p-4 text-left text-sm font-semibold text-gray-600">
@@ -190,7 +190,10 @@ const OrderList = () => {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {paginatedOrders.map((order) => (
-                  <tr key={order.id} className="hover:bg-gray-50">
+                  <tr
+                    key={order.id}
+                    className="hover:bg-gray-50 dark:bg-gray-900  "
+                  >
                     <td className="w-16 p-4">
                       <input
                         type="checkbox"
@@ -226,7 +229,7 @@ const OrderList = () => {
                           type="button"
                           onClick={() => HandleButton(order.id)}
                         >
-                          <RxDotsVertical />
+                          <RxDotsVertical className="text-primary" />
                         </button>
 
                         <div className="bg-transparent rounded-md h-15 w-20 ml-5  flex justify-center px-3">
@@ -257,12 +260,12 @@ const OrderList = () => {
             </table>
           </div>
 
-          <div className="flex items-center justify-between px-6 py-4 bg-gray-50 border-t border-gray-200 flex-wrap">
+          <div className="flex items-center justify-between px-6 py-4 bg-gray-50 dark:bg-gray-900   border-t border-gray-200 flex-wrap">
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}
-                className="px-4 py-2 rounded-lg border border-gray-300 disabled:opacity-50 hover:bg-gray-50"
+                className="px-4 py-2 rounded-lg border border-gray-300 disabled:opacity-50 hover:bg-gray-50 dark:bg-gray-900  "
               >
                 Previous
               </button>
@@ -278,7 +281,7 @@ const OrderList = () => {
                     className={`px-4 py-2 rounded-lg ${
                       currentPage === page
                         ? "bg-blue-500 text-white"
-                        : "border border-gray-300 hover:bg-gray-50"
+                        : "border border-gray-300 hover:bg-gray-50 dark:bg-gray-900  "
                     }`}
                   >
                     {page}
@@ -289,7 +292,7 @@ const OrderList = () => {
                   setCurrentPage((prev) => Math.min(prev + 1, totalPages))
                 }
                 disabled={currentPage === totalPages}
-                className="px-4 py-2 rounded-lg border border-gray-300 disabled:opacity-50 hover:bg-gray-50"
+                className="px-4 py-2 rounded-lg border border-gray-300 disabled:opacity-50 hover:bg-gray-50 dark:bg-gray-900  "
               >
                 Next
               </button>
@@ -297,6 +300,7 @@ const OrderList = () => {
           </div>
         </div>
       </div>
+     
     </div>
   );
 };

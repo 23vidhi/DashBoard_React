@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   ShoppingCart,
   User,
@@ -56,7 +57,7 @@ const OrderDetails = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 mt-7 p-7 ">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900   mt-7 p-7 ">
       {/* Order Header */}
       <div className="flex justify-between  items-center mt-12 mb-3">
         <div className="">
@@ -76,7 +77,7 @@ const OrderDetails = () => {
 
       <div className="flex gap-6">
         {/* Order Details */}
-        <div className="flex-grow bg-white rounded-xl p-6 shadow-md">
+        <div className="flex-grow bg-white dark:bg-background   rounded-xl p-6 shadow-md">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl font-semibold">Order details</h2>
             <button className="text-blue-500">Edit</button>
@@ -144,11 +145,10 @@ const OrderDetails = () => {
 
         {/* Customer Details */}
         <div className="w-96">
-          <div className="bg-white rounded-xl p-4 mb-6 shadow-md">
+          <div className="bg-white dark:bg-background   rounded-xl p-4 mb-6 shadow-md">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-xl font-semibold">Customer details</h2>
               <EditModal />
-           
             </div>
 
             <div className="flex items-center gap-6 mb-6">
@@ -171,7 +171,7 @@ const OrderDetails = () => {
             </div>
           </div>
           {/* contactinfo */}
-          <div className="bg-white  shadow-md rounded-xl p-4">
+          <div className="bg-white dark:bg-background    shadow-md rounded-xl p-4">
             <div className="flex justify-between items-center mb-6">
               <h3 className="font-medium">Contact Info</h3>
               <EditModal />
@@ -182,7 +182,7 @@ const OrderDetails = () => {
             </div>
           </div>
 
-          <div className="mt-6 bg-white shadow-md rounded-xl p-4">
+          <div className="mt-6 bg-white dark:bg-background   shadow-md rounded-xl p-4">
             <div className="flex justify-between items-center mb-6">
               <h3 className="font-medium">Shipping Address</h3>
               <EditModal />
@@ -199,6 +199,7 @@ const OrderDetails = () => {
 
       {/* shipping details */}
       <Shipping />
+     
     </div>
   );
 };

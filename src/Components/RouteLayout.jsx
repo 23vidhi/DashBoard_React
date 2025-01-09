@@ -4,18 +4,16 @@ import "../App.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import "../index.css";
 import Sidebar from "./Sidebar";
-
+import Footer from "./Footer";
 
 const RouteLayout = () => {
   return (
-    <div className="flex flex-col h-[100%] dark:bg-gray-900 text-gray-900 dark:text-gray-100 ">
-      <div className="bg-white ">
-        <Sidebar />
-      </div>
-      <div className="bg-gray-50 w-full h-full">
+    <div className="flex flex-row h-[100%] dark:bg-gray-900 text-gray-900 dark:text-gray-100 ">
+      <Sidebar />
+
+      <div className="bg-gray-50 dark:bg-gray-900   w-full h-full">
         <RightContent />
       </div>
-     
     </div>
   );
 };

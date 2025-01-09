@@ -9,7 +9,7 @@ const HeaderLang = () => {
   };
 
   const selectLanguage = (language) => {
-     setIsOpen(false);
+    setIsOpen(false);
   };
 
   return (
@@ -21,20 +21,20 @@ const HeaderLang = () => {
         aria-haspopup="true"
         aria-expanded={isOpen}
       >
-       <FiGlobe
-                 className="text-gray-500 hover:text-blue-500 cursor-pointer"
-                 size={20}
-               />
+        <FiGlobe
+          className="text-gray-500 hover:text-blue-500 cursor-pointer"
+          size={20}
+        />
       </button>
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-lg shadow-lg">
+        <div className="absolute right-0 mt-2 w-40 bg-white dark:bg-background   border border-gray-200 rounded-lg shadow-lg">
           <ul className="py-2">
             <li>
               <button
                 onClick={() => selectLanguage("English")}
-                className="block w-full px-4 py-2 text-left text-gray-700 hover:bg-violet-200 hover:text-violet-600"
+                className="block w-full px-4 py-2 text-left text-gray-700 dark:bg-background   hover:bg-violet-200 hover:text-violet-600"
               >
                 English
               </button>
@@ -42,7 +42,7 @@ const HeaderLang = () => {
             <li>
               <button
                 onClick={() => selectLanguage("French")}
-                className="block w-full px-4 py-2 text-left text-gray-700 hover:bg-violet-200 hover:text-violet-600"
+                className="block w-full px-4 py-2 text-left text-gray-700 dark:bg-background   hover:bg-violet-200 hover:text-violet-600"
               >
                 French
               </button>
@@ -50,7 +50,7 @@ const HeaderLang = () => {
             <li>
               <button
                 onClick={() => selectLanguage("Arabic")}
-                className="block w-full px-4 py-2 text-left text-gray-700 hover:bg-violet-200 hover:text-violet-600"
+                className="block w-full px-4 py-2 text-left text-gray-700 dark:bg-background   hover:bg-violet-200 hover:text-violet-600"
               >
                 Arabic
               </button>
@@ -58,7 +58,7 @@ const HeaderLang = () => {
             <li>
               <button
                 onClick={() => selectLanguage("Spanish")}
-                className="block w-full px-4 py-2 text-left text-gray-700 hover:bg-violet-200 hover:text-violet-600"
+                className="block w-full px-4 py-2 text-left text-gray-700 dark:bg-background   hover:bg-violet-200 hover:text-violet-600"
               >
                 Spanish
               </button>

@@ -7,12 +7,9 @@ const EditModal = () => {
   const closeModal = () => setIsOpen(false);
 
   return (
-    <div className="bg-white rounded-xl p-6 mb-6 ">
-      <button
-        onClick={openModal}
-        className="text-blue-500"
-      >
-        Edit 
+    <div className="bg-white dark:bg-background   rounded-xl p-6 mb-6 ">
+      <button onClick={openModal} className="text-blue-500">
+        Edit
       </button>
 
       {/* Modal */}
@@ -23,7 +20,7 @@ const EditModal = () => {
           }`}
         >
           <div
-            className={`bg-white rounded-lg shadow-lg max-w-2xl w-full p-6 transform transition-transform duration-300 ${
+            className={`bg-white dark:bg-background   rounded-lg shadow-lg max-w-2xl w-full p-6 transform transition-transform duration-300 ${
               isOpen ? "scale-100 opacity-100" : "scale-90 opacity-0"
             }`}
           >
@@ -31,7 +28,7 @@ const EditModal = () => {
               <h2 className="text-xl font-bold">Edit Customer Details</h2>
               <button
                 onClick={closeModal}
-                className="text-gray-500 hover:text-gray-700"
+                className="text-gray-500 hover:text-gray-700 dark:bg-background  "
               >
                 ✕
               </button>
@@ -43,7 +40,7 @@ const EditModal = () => {
 
             <form className="grid grid-cols-2 gap-4 mt-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-gray-700 dark:bg-background  ">
                   First Name
                 </label>
                 <input
@@ -54,7 +51,7 @@ const EditModal = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-gray-700 dark:bg-background  ">
                   Last Name
                 </label>
                 <input
@@ -65,7 +62,7 @@ const EditModal = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-gray-700 dark:bg-background  ">
                   Username
                 </label>
                 <input
@@ -76,7 +73,7 @@ const EditModal = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-gray-700 dark:bg-background  ">
                   Email
                 </label>
                 <input
@@ -87,7 +84,7 @@ const EditModal = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-gray-700 dark:bg-background  ">
                   Status
                 </label>
                 <select className="w-full mt-1 px-3 py-2 border border-gray-300 rounded">
@@ -97,7 +94,7 @@ const EditModal = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-gray-700 dark:bg-background  ">
                   Phone Number
                 </label>
                 <input
@@ -108,7 +105,7 @@ const EditModal = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-gray-700 dark:bg-background  ">
                   Language
                 </label>
                 <input
@@ -119,7 +116,7 @@ const EditModal = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-gray-700 dark:bg-background  ">
                   Country
                 </label>
                 <input
@@ -130,11 +127,7 @@ const EditModal = () => {
               </div>
 
               <div className="col-span-2 flex items-center">
-                <input
-                  type="checkbox"
-                  id="billing"
-                  className="mr-2"
-                />
+                <input type="checkbox" id="billing" className="mr-2" />
                 <label htmlFor="billing" className="text-sm">
                   Use as a billing address?
                 </label>
@@ -163,4 +156,3 @@ const EditModal = () => {
 };
 
 export default EditModal;
-    

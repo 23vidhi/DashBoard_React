@@ -1,76 +1,54 @@
-import { FiSun } from "react-icons/fi";
-import "../index.css";
 import React, { useState, useEffect } from "react";
+import { FiSun, FiMoon } from "react-icons/fi";
 
 const HeaderModes = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
-
-  const handleDropdownToggle = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
-  const HandleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem("theme") || "light"
+  );
 
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
+    const root = window.document.documentElement;
+    if (theme === "dark") {
+      root.classList.add("dark");
     } else {
-      document.documentElement.classList.remove("dark");
+      root.classList.remove("dark");
     }
-  }, [darkMode]);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const handleThemeChange = (newTheme) => {
+    if (newTheme === "system") {
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      setTheme(prefersDark ? "dark" : "light");
+    } else {
+      setTheme(newTheme);
+    }
+    setDropdownOpen(false);
+  };
 
   return (
-    <div className="relative inline-block text-left">
-      <div>
-        <button
-          type="button"
-          className="inline-flex justify-center rounded-full   py-2 bg-white text-sm  focus:outline-none   "
-          id="options-menu"
-          aria-haspopup="true"
-          aria-expanded="true"
-          onClick={handleDropdownToggle}
-        >
-          <FiSun
-            className="text-gray-500 hover:text-blue-500 cursor-pointer"
-            size={20}
-          />
-        </button>
-      </div>
+    <div className="relative inline-block">
+      <button
+        onClick={() => setDropdownOpen(!dropdownOpen)}
+        className="p-2 rounded-lg dark:bg-gray-800 dark:text-white"
+      >
+        {theme === "dark" ? <FiMoon size={20} /> : <FiSun size={20} />}
+      </button>
 
       {dropdownOpen && (
-        <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-          <div
-            className="py-1"
-            role="menu"
-            aria-orientation="vertical"
-            aria-labelledby="options-menu"
-          >
+        <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-background   dark:bg-gray-800 dark:text-white border dark:border-gray-700">
+          {["light", "dark", "system"].map((mode) => (
             <button
-              className="block px-4 py-2 text-sm hover:bg-violet-200 hover:text-violet-600 w-full text-left"
-              role="menuitem"
-              onClick={() => console.log("Light mode selected")}
+              key={mode}
+              className="w-full px-4 py-2 text-left hover:bg-gray-100 dark:hover:bg-gray-700"
+              onClick={() => handleThemeChange(mode)}
             >
-              Light
+              {mode.charAt(0).toUpperCase() + mode.slice(1)}
             </button>
-            <button
-              className="block px-4 py-2 text-sm hover:bg-violet-200 hover:text-violet-600 w-full text-left"
-              role="menuitem"
-              onClick={() => {
-                HandleDarkMode;
-              }}
-            >
-              Dark
-            </button>
-            <button
-              className="block px-4 py-2 text-sm hover:bg-violet-200 hover:text-violet-600 w-full text-left"
-              role="menuitem"
-              onClick={() => console.log("System mode selected")}
-            >
-              System
-            </button>
-          </div>
+          ))}
         </div>
       )}
     </div>

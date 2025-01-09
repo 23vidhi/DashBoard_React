@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { FiUser, FiSettings, FiCreditCard, FiDollarSign, FiHelpCircle, FiLogOut } from "react-icons/fi";
+import {
+  FiUser,
+  FiSettings,
+  FiCreditCard,
+  FiDollarSign,
+  FiHelpCircle,
+  FiLogOut,
+} from "react-icons/fi";
 
 const HeaderProfile = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,17 +22,17 @@ const HeaderProfile = () => {
         onClick={toggleDropdown}
         className="flex items-center gap-2 p-2  rounded-full  transition"
       >
-       <img
-            src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/1.png"
-            alt="Profile"
-            className="w-10 h-10 rounded-full border border-gray-300"
-          />
-          <span className="absolute bottom-0 right-0 h-3 w-3 bg-green-500 rounded-full border border-white"></span>
+        <img
+          src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/avatars/1.png"
+          alt="Profile"
+          className="w-10 h-10 rounded-full border border-gray-300"
+        />
+        <span className="absolute bottom-0 right-0 h-3 w-3 bg-green-500 rounded-full border border-white"></span>
       </button>
 
       {/* Dropdown */}
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg z-50">
+        <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-background   rounded-lg shadow-lg z-50">
           {/* User Info */}
           <div className="p-4 border-b">
             <div className="flex items-center gap-3">
@@ -56,7 +63,9 @@ const HeaderProfile = () => {
                 <FiCreditCard className="text-gray-600" />
                 <span className="font-medium text-gray-800">Billing Plan</span>
               </div>
-              <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">4</span>
+              <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                4
+              </span>
             </li>
             <li className="flex items-center gap-3 p-3 hover:bg-violet-200 hover:text-violet-600 transition">
               <FiDollarSign className="text-gray-600" />

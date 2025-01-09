@@ -41,12 +41,14 @@ const Body_div5_2 = () => {
   };
 
   return (
-    <div className="max-w-2xl  bg-white shadow-md rounded-lg p-6 space-y-6 w-[47%]">
+    <div className="max-w-2xl  bg-white dark:bg-background shadow-md rounded-lg p-6 space-y-6 w-[47%]">
       <div className="flex items-center justify-between border-b pb-4">
         <div className="flex space-x-4">
           <button
             className={`px-4 py-2 rounded-md ${
-              browserData === "Browser" ? "bg-blue-100 text-blue-600" : "text-gray-500 hover:text-gray-800 "
+              browserData === "Browser"
+                ? "bg-blue-100 text-blue-600"
+                : "text-gray-500 hover:text-gray-800 "
             }`}
             onClick={() => HandleBrowser("Browser")}
           >
@@ -54,7 +56,9 @@ const Body_div5_2 = () => {
           </button>
           <button
             className={`px-4 py-2 rounded-md ${
-              browserData === "OsData" ? "bg-blue-100 text-blue-600" : "text-gray-500 hover:text-gray-800"
+              browserData === "OsData"
+                ? "bg-blue-100 text-blue-600"
+                : "text-gray-500 hover:text-gray-800"
             }`}
             onClick={() => HandleBrowser("OsData")}
           >
@@ -63,7 +67,9 @@ const Body_div5_2 = () => {
 
           <button
             className={`px-4 py-2 rounded-md ${
-              browserData === "CountryData" ? "bg-blue-100 text-blue-600" : "text-gray-500 hover:text-gray-800"
+              browserData === "CountryData"
+                ? "bg-blue-100 text-blue-600"
+                : "text-gray-500 hover:text-gray-800"
             }`}
             onClick={() => HandleBrowser("CountryData")}
           >
@@ -75,7 +81,7 @@ const Body_div5_2 = () => {
       {browserData === "Browser" && (
         <div className="overflow-x-auto">
           <table className="min-w-full text-sm text-left text-gray-500">
-            <thead className="bg-gray-100 text-gray-700 uppercase text-xs">
+            <thead className="bg-gray-100 text-gray-700 dark:bg-background   uppercase text-xs">
               <tr>
                 <th scope="col" className="px-4 py-3">
                   No
@@ -166,7 +172,7 @@ const Body_div5_2 = () => {
       {browserData === "OsData" && (
         <div className="overflow-x-auto">
           <table className="min-w-full text-sm text-left text-gray-500">
-            <thead className="bg-gray-100 text-gray-700 uppercase text-xs">
+            <thead className="bg-gray-100 text-gray-700 dark:bg-background   uppercase text-xs">
               <tr>
                 <th scope="col" className="px-4 py-3">
                   No
@@ -257,7 +263,7 @@ const Body_div5_2 = () => {
       {browserData === "CountryData" && (
         <div className="overflow-x-auto">
           <table className="min-w-full text-sm text-left text-gray-500">
-            <thead className="bg-gray-100 text-gray-700 uppercase text-xs">
+            <thead className="bg-gray-100 text-gray-700 dark:bg-background   uppercase text-xs">
               <tr>
                 <th scope="col" className="px-4 py-3">
                   No

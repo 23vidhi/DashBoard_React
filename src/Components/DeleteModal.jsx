@@ -12,9 +12,8 @@ const DeleteModal = () => {
 
   const closeModal = () => {
     setIsOpen(false);
-   
-      setIsDeleting(false);
-  
+
+    setIsDeleting(false);
   };
 
   const handleDelete = () => {
@@ -39,7 +38,7 @@ const DeleteModal = () => {
           }`}
         >
           <div
-            className={`bg-white rounded-lg shadow-lg max-w-md w-full p-6 transform transition-transform duration-300 ${
+            className={`bg-white dark:bg-background   rounded-lg shadow-lg max-w-md w-full p-6 transform transition-transform duration-300 ${
               isOpen ? "scale-100 opacity-100" : "scale-90 opacity-0"
             }`}
           >
@@ -73,7 +72,7 @@ const DeleteModal = () => {
       {/* Deleting Modal */}
       {isDeleting && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50 transition-opacity duration-300">
-          <div className="bg-white flex flex-col rounded-lg shadow-lg max-w-sm w-full p-6 text-2xl transform transition-transform duration-300 scale-100 opacity-100">
+          <div className="bg-white dark:bg-background   flex flex-col rounded-lg shadow-lg max-w-sm w-full p-6 text-2xl transform transition-transform duration-300 scale-100 opacity-100">
             <div className="flex flex-col justify-center items-center mb-1">
               <FaRegCheckCircle className="text-green-500 mb-7 size-16 font-thin" />
               <h1 className="mb-3">Deleted!</h1>

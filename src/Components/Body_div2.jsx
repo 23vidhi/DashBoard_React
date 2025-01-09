@@ -49,10 +49,10 @@ const BodyDiv2 = () => {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-6 flex w-[100%]  mt-5 h-[65.8%] ">
+    <div className="bg-white dark:bg-background   shadow-md rounded-lg p-6 flex w-[100%]  mt-5 h-[65.8%] ">
       {/* Chart Section */}
       <div className="flex-1 w-60 pr-3 justify-center items-center">
-        <h2 className="text-lg font-semibold text-gray-700 mb-4">
+        <h2 className="text-lg font-semibold text-gray-700 dark:bg-background   mb-4">
           Total Revenue
         </h2>
         <Bar data={data} options={options} />
@@ -61,7 +61,9 @@ const BodyDiv2 = () => {
       {/* Stats Section */}
       <div className="w-1/3 pl-6 border-l border-gray-200">
         <div className="flex justify-between items-center mb-4 p-4">
-          <h3 className="text-gray-700 text-lg font-medium">2023</h3>
+          <h3 className="text-gray-700 dark:bg-background   text-lg font-medium">
+            2023
+          </h3>
           <button className="text-sm bg-purple-100 text-purple-600 px-2 py-1 rounded">
             <FiChevronDown />
           </button>
