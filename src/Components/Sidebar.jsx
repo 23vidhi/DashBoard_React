@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import Logo from "../assets/pictures/sneat logo.png";
 import { FaChevronCircleLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -26,7 +26,9 @@ import {
   ChevronLeft,
   LayoutGrid,
 } from "lucide-react";
-
+// import { createContext} from "react";
+ 
+ 
 const SidebarItems = [
   {
     label: "Dashboards",
@@ -239,11 +241,14 @@ const SidebarItems6 = [
   { label: "Documentation", icon: Mail, link: "#" },
 ];
 
+// export const TranslateContext= createContext({});
+
 const Sidebar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isFixed, setIsFixed] = useState(true);
   const [activeDropdowns, setActiveDropdowns] = useState(new Set());
   const navigate = useNavigate();
+ 
 
   const toggleDropdown = (itemPath) => {
     setActiveDropdowns((prev) => {
@@ -261,8 +266,11 @@ const Sidebar = () => {
     const itemPath = `${path}/${item.label}`;
     const isDropdownOpen = activeDropdowns.has(itemPath);
     const Icon = item.icon;
-
-    return (
+   
+  
+    // <TranslateContext.Provider value={{isFixed,setIsFixed}}>
+ 
+     return (
       <li key={itemPath} className="mb-1 ">
         <a
           href={item.link}
@@ -306,10 +314,13 @@ const Sidebar = () => {
         )}
       </li>
     );
-  };
+  }
+
+  
 
   return (
-    <nav
+    
+      <nav
       className={`
           fixed top-0 left-0 h-screen bg-white   dark:bg-background   border-r transition-all duration-300
         ${isExpanded ? "w-64" : "w-16"}
@@ -324,9 +335,9 @@ const Sidebar = () => {
         onClick={() => navigate(`/Body`)}
       >
         <div className="flex items-center gap-2 ">
-          <div className="flex items-center justify-center w-8 h-8 ">
-            <span className="text-lg font-bold text-white  text-primary ">
-              <img className="bg-transparent" src={Logo} />
+          <div className="flex items-center justify-center w-8 h-8  dark:bg-background">
+            <span className="text-lg font-bold text-white  dark:bg-transparent text-primary ">
+              <img className="bg-transparent dark:bg-background" src={Logo} />
             </span>
           </div>
           <span
@@ -414,7 +425,12 @@ const Sidebar = () => {
         }
       `}</style>
     </nav>
+    
   );
-};
+   
+  }
+
+
+
 
 export default Sidebar;

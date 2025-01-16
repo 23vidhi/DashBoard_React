@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { FaRegCheckCircle } from "react-icons/fa";
-
+import OrderDetails from "./Orders/OrderDetails/OrderDetails";
 const DeleteModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -9,11 +9,14 @@ const DeleteModal = () => {
   const openModal = () => {
     setIsOpen(true);
   };
+ 
 
   const closeModal = () => {
     setIsOpen(false);
 
     setIsDeleting(false);
+    
+  
   };
 
   const handleDelete = () => {

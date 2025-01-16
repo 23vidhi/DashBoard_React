@@ -7,7 +7,7 @@ import HeaderProfile from "./HeaderProfile";
 
 const Header = () => {
   return (
-    <header className="bg-white dark:bg-background   shadow-md p-4 flex items-center justify-between  mt-4 ml-[0.40rem] w-[69.5%] rounded-md h-14 fixed top-0  z-10">
+    <header className="bg-white dark:bg-background   shadow-md p-4 flex items-center justify-between  mt-4 ml-[0.40rem] w-[69.5%] rounded-md h-14 fixed top-0 z-10 lg:w-[69.5%],fixed,justify-center">
       {/* Search Bar */}
       <div className="relative flex-1 max-w-[600px]">
         <FiSearch className="absolute left-4 top-3 text-gray-400" />

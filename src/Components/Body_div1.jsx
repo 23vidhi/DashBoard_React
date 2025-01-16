@@ -2,7 +2,7 @@ import React from "react";
 
 const Body_div1 = () => {
   return (
-    <div className="bg-white dark:bg-background   shadow-md rounded-lg p-6 flex h-auto  w-[100%]">
+    <div className="bg-white  dark:bg-background   shadow-md rounded-lg p-6 flex h-auto  w-[100%]">
       {/* Left Section */}
       <div className="h-auto ">
         <h2 className="text-lg font-semibold text-violet-600 flex items-center">
@@ -19,11 +19,11 @@ const Body_div1 = () => {
       </div>
 
       {/* Right Section */}
-      <div className="w-1/3">
-        <img
+      <div className="w-[100%] h-[100%] lg:w-[100%],h-[100%]">
+        <img className="w-[100%] h-[100%] lg:w-[100%],h-[100%]"
           src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/illustrations/man-with-laptop.png"
           alt="Person at laptop"
-          className="w-full h-auto"
+          
         />
       </div>
     </div>

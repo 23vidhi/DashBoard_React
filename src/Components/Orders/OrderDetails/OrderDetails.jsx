@@ -15,7 +15,10 @@ import Shipping from "./Shipping";
 import { RiErrorWarningLine } from "react-icons/ri";
 import DeleteModal from "../../DeleteModal";
 import EditModal from "../../EditModal";
+import { useState } from "react";
 const OrderDetails = () => {
+  const [orderDetails, setOrderDetails]=useState();
+
   const orderData = {
     orderId: "32543",
     date: "Aug 17, 2025, 5:48 (ET)",
@@ -53,13 +56,13 @@ const OrderDetails = () => {
     },
   };
   const HandleDelete = () => {
-    alert("Order deleted successfully!");
+   setOrderDetails(null);
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900   mt-7 p-7 ">
+    <div className="min-h-screen bg-gray-50 dark:bg-foreground   mt-7 p-7 rounded ">
       {/* Order Header */}
-      <div className="flex justify-between  items-center mt-12 mb-3">
+      <div className="flex justify-between  dark:bg-foreground items-center mt-12 mb-3">
         <div className="">
           <h1 className="text-2xl font-semibold">Order #{orderData.orderId}</h1>
           <p className="text-gray-500">{orderData.date}</p>
@@ -71,7 +74,7 @@ const OrderDetails = () => {
           <span className="px-3 py-1 bg-blue-100 text-blue-600 rounded">
             Ready to Pickup
           </span>
-          <DeleteModal />
+          <DeleteModal onClick={HandleDelete}/>
         </div>
       </div>
 
