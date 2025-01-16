@@ -1,5 +1,5 @@
 import React, { useState, createContext } from "react";
-import Logo from "../assets/pictures/sneat logo.png";
+import Logo from "../assets/pictures/logo.png";
 import { FaChevronCircleLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import {
@@ -27,8 +27,7 @@ import {
   LayoutGrid,
 } from "lucide-react";
 // import { createContext} from "react";
- 
- 
+
 const SidebarItems = [
   {
     label: "Dashboards",
@@ -178,65 +177,125 @@ const SidebarItems2 = [
 ];
 
 const SidebarItems3 = [
-  { label: "Cards", icon: Mail, link: "#",dropdown: [
-    { label: "Products", link: "/" },
-    { label: "Overview", link: "/overview" },
-    { label: "Analytics", link: "/analytics" },
-    { label: "Reports", link: "/reports" },] },
-  { label: "User Interface", icon: Mail, link: "#",dropdown: [
-    { label: "Products", link: "/" },
-    { label: "Overview", link: "/overview" },
-    { label: "Analytics", link: "/analytics" },
-    { label: "Reports", link: "/reports" },]  },
+  {
+    label: "Cards",
+    icon: Mail,
+    link: "#",
+    dropdown: [
+      { label: "Products", link: "/" },
+      { label: "Overview", link: "/overview" },
+      { label: "Analytics", link: "/analytics" },
+      { label: "Reports", link: "/reports" },
+    ],
+  },
+  {
+    label: "User Interface",
+    icon: Mail,
+    link: "#",
+    dropdown: [
+      { label: "Products", link: "/" },
+      { label: "Overview", link: "/overview" },
+      { label: "Analytics", link: "/analytics" },
+      { label: "Reports", link: "/reports" },
+    ],
+  },
   { label: "Extended UI", icon: Mail, link: "#" },
   { label: "Icons", icon: Mail, link: "#" },
 ];
 const SidebarItems4 = [
-  { label: "Form Elements", icon: Mail, link: "#",dropdown: [
-    { label: "Products", link: "/" },
-    { label: "Overview", link: "/overview" },
-    { label: "Analytics", link: "/analytics" },
-    { label: "Reports", link: "/reports" },]  },
-  { label: "Form Layouts", icon: Mail, link: "#",dropdown: [
-    { label: "Products", link: "/" },
-    { label: "Overview", link: "/overview" },
-    { label: "Analytics", link: "/analytics" },
-    { label: "Reports", link: "/reports" },]  },
-  { label: "Form Wizard", icon: Mail, link: "#",dropdown: [
-    { label: "Products", link: "/" },
-    { label: "Overview", link: "/overview" },
-    { label: "Analytics", link: "/analytics" },
-    { label: "Reports", link: "/reports" },]  },
-  { label: "Form Validation", icon: Mail, link: "#",dropdown: [
-    { label: "Products", link: "/" },
-    { label: "Overview", link: "/overview" },
-    { label: "Analytics", link: "/analytics" },
-    { label: "Reports", link: "/reports" },]  },
+  {
+    label: "Form Elements",
+    icon: Mail,
+    link: "#",
+    dropdown: [
+      { label: "Products", link: "/" },
+      { label: "Overview", link: "/overview" },
+      { label: "Analytics", link: "/analytics" },
+      { label: "Reports", link: "/reports" },
+    ],
+  },
+  {
+    label: "Form Layouts",
+    icon: Mail,
+    link: "#",
+    dropdown: [
+      { label: "Products", link: "/" },
+      { label: "Overview", link: "/overview" },
+      { label: "Analytics", link: "/analytics" },
+      { label: "Reports", link: "/reports" },
+    ],
+  },
+  {
+    label: "Form Wizard",
+    icon: Mail,
+    link: "#",
+    dropdown: [
+      { label: "Products", link: "/" },
+      { label: "Overview", link: "/overview" },
+      { label: "Analytics", link: "/analytics" },
+      { label: "Reports", link: "/reports" },
+    ],
+  },
+  {
+    label: "Form Validation",
+    icon: Mail,
+    link: "#",
+    dropdown: [
+      { label: "Products", link: "/" },
+      { label: "Overview", link: "/overview" },
+      { label: "Analytics", link: "/analytics" },
+      { label: "Reports", link: "/reports" },
+    ],
+  },
   { label: "Tables", icon: Mail, link: "#" },
-  { label: "DataTables", icon: Mail, link: "#" ,dropdown: [
-    { label: "Products", link: "/" },
-    { label: "Overview", link: "/overview" },
-    { label: "Analytics", link: "/analytics" },
-    { label: "Reports", link: "/reports" },] },
+  {
+    label: "DataTables",
+    icon: Mail,
+    link: "#",
+    dropdown: [
+      { label: "Products", link: "/" },
+      { label: "Overview", link: "/overview" },
+      { label: "Analytics", link: "/analytics" },
+      { label: "Reports", link: "/reports" },
+    ],
+  },
 ];
 const SidebarItems5 = [
-  { label: "Charts", icon: Mail, link: "#" ,dropdown: [
-    { label: "Products", link: "/" },
-    { label: "Overview", link: "/overview" },
-    { label: "Analytics", link: "/analytics" },
-    { label: "Reports", link: "/reports" },]  },
-  { label: "Leaflet Maps", icon: Mail, link: "#",dropdown: [
-    { label: "Products", link: "/" },
-    { label: "Overview", link: "/overview" },
-    { label: "Analytics", link: "/analytics" },
-    { label: "Reports", link: "/reports" },]  },
+  {
+    label: "Charts",
+    icon: Mail,
+    link: "#",
+    dropdown: [
+      { label: "Products", link: "/" },
+      { label: "Overview", link: "/overview" },
+      { label: "Analytics", link: "/analytics" },
+      { label: "Reports", link: "/reports" },
+    ],
+  },
+  {
+    label: "Leaflet Maps",
+    icon: Mail,
+    link: "#",
+    dropdown: [
+      { label: "Products", link: "/" },
+      { label: "Overview", link: "/overview" },
+      { label: "Analytics", link: "/analytics" },
+      { label: "Reports", link: "/reports" },
+    ],
+  },
 ];
 const SidebarItems6 = [
-  { label: "Multi Level", icon: Mail, link: "#" ,dropdown: [
-    { label: "Products", link: "/" },
-    { label: "Overview", link: "/overview" },
-    { label: "Analytics", link: "/analytics" },
-    { label: "Reports", link: "/reports" },] },
+  {
+    label: "Multi Level",
+    icon: Mail,
+    link: "#",
+    dropdown: [
+      { label: "Products", link: "/" },
+      { label: "Overview", link: "/overview" },
+      { label: "Analytics", link: "/analytics" },
+      { label: "Reports", link: "/reports" },
+    ],
+  },
   { label: "Support", icon: Mail, link: "#" },
   { label: "Documentation", icon: Mail, link: "#" },
 ];
@@ -248,7 +307,6 @@ const Sidebar = () => {
   const [isFixed, setIsFixed] = useState(true);
   const [activeDropdowns, setActiveDropdowns] = useState(new Set());
   const navigate = useNavigate();
- 
 
   const toggleDropdown = (itemPath) => {
     setActiveDropdowns((prev) => {
@@ -266,11 +324,10 @@ const Sidebar = () => {
     const itemPath = `${path}/${item.label}`;
     const isDropdownOpen = activeDropdowns.has(itemPath);
     const Icon = item.icon;
-   
-  
+
     // <TranslateContext.Provider value={{isFixed,setIsFixed}}>
- 
-     return (
+
+    return (
       <li key={itemPath} className="mb-1 ">
         <a
           href={item.link}
@@ -278,7 +335,9 @@ const Sidebar = () => {
             flex items-center w-full px-4 py-2 rounded-lg cursor-pointer
     const isDropdownOpen = activeDropdowns.has(itemPath).classList.add("list-disc text-gray-400 ml-5");
             ${
-              isDropdownOpen ? "bg-violet-50 text-violet-600 " : "text-gray-600 "
+              isDropdownOpen
+                ? "bg-violet-50 text-violet-600 "
+                : "text-gray-600 "
             }
             hover:bg-violet-50 hover:text-violet-600 transition-colors
           `}
@@ -314,13 +373,10 @@ const Sidebar = () => {
         )}
       </li>
     );
-  }
-
-  
+  };
 
   return (
-    
-      <nav
+    <nav
       className={`
           fixed top-0 left-0 h-screen bg-white   dark:bg-background   border-r transition-all duration-300
         ${isExpanded ? "w-64" : "w-16"}
@@ -425,12 +481,7 @@ const Sidebar = () => {
         }
       `}</style>
     </nav>
-    
   );
-   
-  }
-
-
-
+};
 
 export default Sidebar;
